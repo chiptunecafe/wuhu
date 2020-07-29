@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile.nginx
     ports:
-      - "8080:80"
+      - "${PORT}:80"
     volumes:
       - ./www_admin:/var/www/www_admin
       - ./www_party:/var/www/www_party
