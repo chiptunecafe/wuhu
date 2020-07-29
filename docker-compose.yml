@@ -1,0 +1,43 @@
+version: '3'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www_admin:/var/www/www_admin
+      - ./www_party:/var/www/www_party
+      - ./entries_public:/var/www/entries_public
+      - ./entries_private:/var/www/entries_private
+      - ./screenshots:/var/www/screenshots
+    depends_on:
+      - php-fpm
+      - mariadb
+    environment:
+      - ADMIN_HOST
+      - PARTY_HOST
+  php-fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    volumes:
+      - ./www_admin:/var/www/www_admin
+      - ./www_party:/var/www/www_party
+      - ./entries_public:/var/www/entries_public
+      - ./entries_private:/var/www/entries_private
+      - ./screenshots:/var/www/screenshots
+    depends_on:
+      - mariadb
+  mariadb:
+    image: "demyx/mariadb"
+    environment:
+      - MARIADB_DATABASE
+      - MARIADB_USERNAME
+      - MARIADB_PASSWORD
+      - MARIADB_ROOT_PASSWORD
+    volumes:
+      - db:/demyx
+volumes:
+  db:
