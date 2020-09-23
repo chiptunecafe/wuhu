@@ -39,19 +39,6 @@ function validate() {
     return 0;
   }
 
-  $votekey = sanitize_votekey($_POST["votekey"]);
-  $r = SQLLib::selectRow(sprintf_esc("select * from votekeys where `votekey`='%s'",$votekey));
-  if (!$r)
-  {
-    echo "<div class='error'>This votekey is invalid!</div>";
-    return 0;
-  }
-  if ($r->userid)
-  {
-    echo "<div class='error'>This votekey is already in use!</div>";
-    return 0;
-  }
-
   return 1;
 }
 $success = false;
@@ -72,7 +59,6 @@ if ($_POST["username"]) {
     {
       $trans = new SQLTrans();
       $userID = SQLLib::InsertRow("users",$userdata);
-      SQLLib::UpdateRow("votekeys",array("userid"=>$userID),sprintf_esc("`votekey`='%s'",sanitize_votekey($_POST["votekey"])));
       echo "<div class='success'>Registration successful!</div>";
       $success = true;
     }
@@ -97,10 +83,6 @@ if(!$success)
 <div>
   <label for="password2">Password again:</label>
   <input id="password2" name="password2" type="password" required='yes' />
-</div>
-<div>
-  <label for="votekey">Votekey: <small>(Get one at the infodesk to be able to register!)</small></label>
-  <input id="votekey" name="votekey" type="text" value="<?=_html($_POST["votekey"])?>" required='yes'/>
 </div>
 <div>
   <label for="nickname">Nick/Handle:</label>
