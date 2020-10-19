@@ -14,7 +14,6 @@ services:
       - ./screenshots:/var/www/screenshots
     depends_on:
       - php-fpm
-      - mariadb
     environment:
       - ADMIN_HOST
       - PARTY_HOST
@@ -28,16 +27,7 @@ services:
       - ./entries_public:/var/www/entries_public
       - ./entries_private:/var/www/entries_private
       - ./screenshots:/var/www/screenshots
-    depends_on:
-      - mariadb
-  mariadb:
-    image: "demyx/mariadb"
-    environment:
-      - MARIADB_DATABASE
-      - MARIADB_USERNAME
-      - MARIADB_PASSWORD
-      - MARIADB_ROOT_PASSWORD
-    volumes:
-      - db:/demyx
-volumes:
-  db:
+networks:
+  default:
+    external:
+      name: wuhunet
