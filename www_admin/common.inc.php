@@ -209,11 +209,17 @@ function handleUploadedRelease( $dataArray, &$output )
 
   if ($dataArray["userID"])
   {
+    $existingentry = SQLLib::selectRow(sprintf_esc("select * from compoentries where userid=%d and compoid=%d",$dataArray["userID"],$dataArray["compoID"]));
+    if ($existingentry) {
+      $output["error"] = "You cannot upload another entry to this category!";
+      return false;
+    }
+
     // not a superuser upload: more checks
     if ($entry)
     {
       if ($compo->uploadopen == 0 && $compo->updateopen == 0) {
-        $output["error"] = "Sorry, the compo deadline is over!";
+        $output["error"] = "Sorry, the category deadline is over!";
         return false;
       }
       if ($entry->userid != $dataArray["userID"]) {
@@ -224,7 +230,7 @@ function handleUploadedRelease( $dataArray, &$output )
     else
     {
       if ($compo->uploadopen == 0) {
-        $output["error"] = "Sorry, the compo is not open for entries anymore!";
+        $output["error"] = "Sorry, the category is not open for entries anymore!";
         return false;
       }
     }

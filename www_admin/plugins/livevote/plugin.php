@@ -44,7 +44,7 @@ function livevote_content( $data )
     $compo = get_compo( (int)get_setting("livevote_compo") );
     if (!$compo)
     {
-      $a = array("error" => "No compo open for live voting");
+      $a = array("error" => "No category open for live voting");
     }
     else
     {

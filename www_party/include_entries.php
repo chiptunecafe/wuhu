@@ -77,7 +77,7 @@ if ($_GET["id"]) {
 <form action="<?=build_url($page,array("id"=>(int)$_GET["id"])) ?>" method="post" enctype="multipart/form-data">
 <div id="entryform">
 <div class='formrow'>
-  <label for="title">Product title:</label>
+  <label for="title">Title:</label>
   <input id="title" name="title" type="text" value="<?=_html($entry->title)?>" required='yes'/>
 </div>
 <div class='formrow'>
@@ -85,7 +85,7 @@ if ($_GET["id"]) {
   <input id="author" name="author" type="text" value="<?=_html($entry->author)?>"/>
 </div>
 <div class='formrow'>
-  <label for="comment">Comment: (this will be shown on the compo slide)</label>
+  <label for="comment">Hardware / Software used: (shown on stream)</label>
   <textarea id="comment" name="comment"><?=_html($entry->comment)?></textarea>
 </div>
 <div class='formrow'>

@@ -3,7 +3,7 @@ if (!defined("ADMIN_DIR")) exit();
 
 if (is_user_logged_in())
 {
-  redirect( build_url("News",array("login"=>"alreadyloggedin")) );
+  redirect( build_url("Home",array("login"=>"alreadyloggedin")) );
 }
 
 run_hook("login_start");
@@ -19,7 +19,7 @@ if ($_POST["login"])
   if ($userID)
   {
     $_SESSION["logindata"] = SQLLib::selectRow(sprintf_esc("select * from users where id=%d",$userID));
-    header( "Location: ".build_url("News",array("login"=>"success")) );
+    header( "Location: ".build_url("Home",array("login"=>"success")) );
   }
   else
   {

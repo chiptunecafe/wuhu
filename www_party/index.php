@@ -23,7 +23,7 @@ $year = "intranet";
 $wiki = new MinusWiki();
 $wiki->TableName = "intranet_minuswiki_pages";
 
-$page = "News";
+$page = "Home";
 if($_GET["page"]) $page = $_GET["page"];
 
 if (strstr($page,":")!==false)

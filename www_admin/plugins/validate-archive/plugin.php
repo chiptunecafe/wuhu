@@ -58,7 +58,12 @@ function validatearchive_validate( $params )
             if (substr($header,0,2)!="PK"
              && substr($header,0,4)!="Rar!")
               $params["output"]["error"] = "You must upload either a ZIP or RAR!";
-          } break;
+	  } break;
+        case "wav":
+	  {
+	  if (substr($header,0,4) != "RIFF" || substr($header,8,4) != "WAVE")
+              $params["output"]["error"] = "You must upload a WAV file!";
+	  }
       }
       fclose($f);
     }

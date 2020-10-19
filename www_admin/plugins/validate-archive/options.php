@@ -22,6 +22,7 @@ if ($_POST)
   <label><input type='radio' name='type' value='all' <?=(get_setting("validatearchive_type")=="all"?" checked='checked'":"")?>/> Any file type</label>
   <label><input type='radio' name='type' value='zip' <?=(get_setting("validatearchive_type")=="zip"?" checked='checked'":"")?>/> ZIP only</label>
   <label><input type='radio' name='type' value='ziprar' <?=(get_setting("validatearchive_type")=="ziprar"?" checked='checked'":"")?>/> ZIP and RAR</label>
+  <label><input type='radio' name='type' value='wav' <?=(get_setting("validatearchive_type")=="wav"?" checked='checked'":"")?>/> WAV</label>
 
   <h3>Rename file to "title by author.ext"</h3>
   <label><input type='radio' name='rename' value='never' <?=(get_setting("validatearchive_rename")=="never"?" checked='checked'":"")?>/> Never</label>

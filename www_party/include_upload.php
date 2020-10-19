@@ -44,9 +44,9 @@ global $page;
 <form action="<?=$_SERVER["REQUEST_URI"]?>" method="post" enctype="multipart/form-data" id='uploadEntryForm'>
 <div id="entryform">
 <div class='formrow'>
-  <label for='compo'>Compo:</label>
+  <label for='compo'>Category:</label>
   <select id='compo' name="compo" required='yes'>
-    <option value=''>-- Please select a compo:</option>
+    <option value=''>-- Please select a category:</option>
 <?php
 foreach($s as $t)
   printf("  <option value='%d'%s>%s</option>\n",$t->id,$t->id==$_POST["compo"] ? ' selected="selected"' : "",$t->name);
@@ -54,15 +54,15 @@ foreach($s as $t)
   </select>
 </div>
 <div class='formrow'>
-  <label for='title'>Product title:</label>
+  <label for='title'>Title:</label>
   <input id='title' name="title" type="text" value="<?=_html($_POST["title"])?>" required='yes'/>
 </div>
 <div class='formrow'>
-  <label for='author'>Author:</label>
+  <label for='author'>Author: <small>(shown on stream)</small></label>
   <input id='author' name="author" type="text" value="<?=_html($_POST["author"])?>"/>
 </div>
 <div class='formrow'>
-  <label for="comment">Comment: <small>(this will be shown on the compo slide)</small></label>
+  <label for="comment">Hardware / Software used: <small>(shown on stream)</small></label>
   <textarea name="comment"><?=_html($_POST["comment"])?></textarea>
 </div>
 <div class='formrow'>
