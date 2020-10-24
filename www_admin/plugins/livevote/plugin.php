@@ -142,7 +142,7 @@ function reloadVotes()
                 },
               });
             });
-            liEntry.down(".votes").insert( vote.update(i) );
+            liEntry.down(".votes").insert( vote );
           }
           $("compoEntries").insert( liEntry );
         }

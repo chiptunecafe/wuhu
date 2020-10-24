@@ -207,6 +207,37 @@ label {
     font-size: 1.5em;
 }
 
+/* live voting */
+
+.votes {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.votes .vote {
+    margin-right: 0.5em;
+    width: 2.5em;
+    height: 2.5em;
+    background: var(--page-fg);
+    transition: 0.1s;
+
+    -webkit-mask-image: url(star_border.svg);
+    mask-image: url(star_border.svg);
+
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+
+.votes .vote:hover {
+    background: white;
+}
+
+.votes .vote.selected {
+    -webkit-mask-image: url(star_filled.svg);
+    mask-image: url(star_filled.svg);
+}
+
 /* mobile support */
 
 @media (max-width: 800px) {
