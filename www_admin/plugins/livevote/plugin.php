@@ -117,6 +117,7 @@ function reloadVotes()
           liEntry.insert( new Element("ul",{"class":"votes"}) );
           for(var i = <?=(int)$voter->minVote?>; i <= <?=(int)$voter->maxVote?>; i++)
           {
+            const voteval = i;
             var vote = new Element("li",{class:"vote","data-votevalue":i});
             vote.observe("click",function(ev){
               var p = {};
@@ -137,7 +138,9 @@ function reloadVotes()
                     csrfName  = transVote.responseJSON.csrf.name;
                     csrfToken = transVote.responseJSON.csrf.token;
                     ev.element().up("ul").select("li.vote").invoke("removeClassName","selected");
-                    ev.element().addClassName("selected");
+                    for (let j = 0;j<=voteval;j++){
+                      liEntry.down("ul.votes li.vote[data-votevalue="+j+"]").addClassName("selected");
+                    }
                   }
                 },
               });
@@ -147,8 +150,11 @@ function reloadVotes()
           $("compoEntries").insert( liEntry );
         }
         liEntry.select("ul.votes li.vote").invoke("removeClassName","selected");
-        if (entry.vote)
-          liEntry.down("ul.votes li.vote[data-votevalue="+entry.vote+"]").addClassName("selected");
+        if (entry.vote) {
+          for (let i = 0;i<=entry.vote;i++){
+            liEntry.down("ul.votes li.vote[data-votevalue="+i+"]").addClassName("selected");
+          }
+        }
         var s = "";
         s += "#" + playingorder--;
         s += " - ";
