@@ -1,0 +1,3 @@
+[submodule "www_admin/plugins/json_export"]
+	path = www_admin/plugins/json_export
+	url = https://github.com/chiptunecafe/wuhu-plugin-json-export
