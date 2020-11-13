@@ -1,5 +1,5 @@
 # WUHU
-Lightweight party management system
+Lightweight party management system- significantly modified for running jams.
 http://wuhu.function.hu
 
 ## Requirements
