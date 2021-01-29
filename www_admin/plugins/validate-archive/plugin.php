@@ -61,8 +61,8 @@ function validatearchive_validate( $params )
 	  } break;
         case "wav":
 	  {
-	  if (substr($header,0,4) != "RIFF" || substr($header,8,4) != "WAVE")
-              $params["output"]["error"] = "You must upload a WAV file!";
+	  if (!((substr($header,0,4) == "RIFF" && substr($header,8,4) == "WAVE") || (substr($header,0,4) == "fLaC")))
+              $params["output"]["error"] = "You must upload a WAV or FLAC file!";
 	  }
       }
       fclose($f);
