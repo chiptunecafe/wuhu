@@ -85,11 +85,11 @@ if ($_GET["id"]) {
   <input id="author" name="author" type="text" value="<?=_html($entry->author)?>"/>
 </div>
 <div class='formrow'>
-  <label for="comment">Hardware / Software used: (shown on stream)</label>
+  <label for="comment">Hardware / Software used:</label>
   <textarea id="comment" name="comment"><?=_html($entry->comment)?></textarea>
 </div>
 <div class='formrow'>
-  <label id="orgacomment">Comment for the organizers: (this will NOT be shown anywhere)</label>
+  <label id="orgacomment">Comment: (this will be read on stream)</label>
   <textarea name="orgacomment"><?=_html($entry->orgacomment)?></textarea>
 </div>
 <div class='formrow'>

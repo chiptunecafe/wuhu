@@ -143,11 +143,11 @@ foreach($s as $t) {
   <td><input name="author" type="text" value="<?=_html($entry->author)?>" class="inputfield"/></td>
 </tr>
 <tr>
-  <td>Comment: (this will be shown on the compo slide)</td>
+  <td>Hardware / Software used:</td>
   <td><textarea name="comment"><?=_html($entry->comment)?></textarea></td>
 </tr>
 <tr>
-  <td>Comment for the organizers: (this will NOT be shown anywhere)</td>
+  <td>Comment: (this will be read on stream)</td>
   <td><textarea name="orgacomment"><?=_html($entry->orgacomment)?></textarea></td>
 </tr>
 <?php if ($entry) { ?>

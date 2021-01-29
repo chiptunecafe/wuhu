@@ -66,7 +66,7 @@ foreach($s as $t)
   <textarea name="comment"><?=_html($_POST["comment"])?></textarea>
 </div>
 <div class='formrow'>
-  <label for='orgacomment'>Comment for the organizers: <small>(this will NOT be shown anywhere)</small></label>
+  <label for='orgacomment'>Comment: <small>(this will be read on stream)</small></label>
   <textarea name="orgacomment" id="orgacomment"><?=_html($_POST["orgacomment"])?></textarea>
 </div>
 <div class='formrow'>
