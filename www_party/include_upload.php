@@ -78,7 +78,7 @@ foreach($s as $t)
   <input id='entryfile' name="entryfile" type="file" required='yes' />
 </div>
 <div class='formrow'>
-  <label for='screenshot'>Screenshot: <small>(optional - JPG, GIF or PNG!)</small></label>
+  <label for='screenshot'>Screenshot: <small>(optional - JPG, GIF or PNG, will be cropped to 16:9 and shown on voting page!)</small></label>
   <input id='screenshot' name="screenshot" type="file" accept="image/*" />
 </div>
 <div class='formrow'>

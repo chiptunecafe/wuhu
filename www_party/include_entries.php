@@ -93,7 +93,7 @@ if ($_GET["id"]) {
   <textarea name="orgacomment"><?=_html($entry->orgacomment)?></textarea>
 </div>
 <div class='formrow'>
-  <label>Screenshot: (JPG, GIF or PNG!)</label>
+  <label>Screenshot: (JPG, GIF or PNG, will be cropped to 16:9 and shown on voting page!)</label>
   <img id='screenshot' src='screenshot.php?id=<?=(int)$_GET["id"]?>&amp;show=thumb' alt='thumb'/>
   <input name="screenshot" type="file" accept="image/*" />
 </div>
