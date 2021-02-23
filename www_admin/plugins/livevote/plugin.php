@@ -115,7 +115,7 @@ function reloadVotes()
           liEntry = new Element("li",{"data-entryid":entry.id,"data-playingorder":entry.playingorder});
           liEntry.insert( new Element("h3") );
           liEntry.insert( new Element("ul",{"class":"votes"}) );
-          for(var i = <?=(int)$voter->minVote?>; i <= <?=(int)$voter->maxVote?>; i++)
+          for(var i = <?=(int)$voter->minVote?>+1; i <= <?=(int)$voter->maxVote?>; i++)
           {
             const voteval = i;
             var vote = new Element("li",{class:"vote","data-votevalue":i});
@@ -138,7 +138,7 @@ function reloadVotes()
                     csrfName  = transVote.responseJSON.csrf.name;
                     csrfToken = transVote.responseJSON.csrf.token;
                     ev.element().up("ul").select("li.vote").invoke("removeClassName","selected");
-                    for (let j = 0;j<=voteval;j++){
+                    for (let j = 1;j<=voteval;j++){
                       liEntry.down("ul.votes li.vote[data-votevalue="+j+"]").addClassName("selected");
                     }
                   }
@@ -151,7 +151,7 @@ function reloadVotes()
         }
         liEntry.select("ul.votes li.vote").invoke("removeClassName","selected");
         if (entry.vote) {
-          for (let i = 0;i<=entry.vote;i++){
+          for (let i = 1;i<=entry.vote;i++){
             liEntry.down("ul.votes li.vote[data-votevalue="+i+"]").addClassName("selected");
           }
         }
